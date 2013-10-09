@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Sacos</title>
+		<meta charset="utf-8">
+		<style>
+			#view, .control{
+				display: inline-block;
+			}
+			.left,
+			.right,
+			.center{
+				display: inline-block;
+				border: 1px solid blue;
+				vertical-align: top;
+			}
+			img{
+				max-width: 200px;
+				display: block;
+				vertical-align: top;
+			}
+			.control li{
+				display: inline;
+			}
+			.control img{
+				display: inline-block;
+				max-width: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Modifica tu saco</h1>
+		<div id="view">
+			<div class="left">
+				<img id="manga" src="manga.jpg" alt="">
+				<img id="puno" src="puno.jpg" alt="">
+			</div>
+			<div class="center">
+				<img id="top" src="top.png" alt="">
+				<img id="torso" src="torso.jpg" alt="">
+			</div>
+			<div class="right">
+				<img id="manga2" src="manga.jpg" alt="">
+				<img id="puno2" src="puno.jpg" alt="">
+			</div>
+		</div>
+		<div class="control control-mangas" data-modify="#manga,#manga2" >
+			<h2>Mangas</h2>
+			<ul>
+				<li><img src="manga.jpg" alt=""></li>
+				<li><img src="manga2.png" alt=""></li>
+				<li><img src="manga3.png" alt=""></li>
+			</ul>
+		</div>
+		<div class="control control-mangas" data-modify="#puno,#puno2" >
+			<h2>Puños</h2>
+			<ul>
+				<li><img src="puno.jpg" alt=""></li>
+				<li><img src="puno2.jpg" alt=""></li>
+			</ul>
+		</div>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>
+		$('.control').on('click', 'img', function(){
+			var modifies = $(this).parents('.control').attr('data-modify')
+			$(modifies).attr('src', this.src)
+		})
+		</script>
+	</body>
+</html>
